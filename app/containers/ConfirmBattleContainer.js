@@ -32,12 +32,23 @@ var ConfirmBattleContainer = React.createClass({
     }.bind(this))
   },
 
+  handleInitialBattle() {
+    this.context.router.push({
+      pathname : '/results',
+      state : {
+        //pushing data to next page
+        playersInfo : this.state.playersInfo
+      }
+    })
+  },
+
 
   render() {
     return (
       <ConfirmBattle
       isLoading = {this.state.isLoading}
       playersInfo = {this.state.playersInfo}
+      onInitiateBattle = {this.handleInitialBattle}
       />
     );
   }
