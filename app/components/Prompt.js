@@ -1,6 +1,7 @@
 var React = require('react')
 var transparentBg = require('../styles').transparentBg;
 var PropTypes = React.PropTypes;
+var MainWrapper = require('../components/MainWrapper')
 
 var Prompt = React.createClass({
   propTypes : {
