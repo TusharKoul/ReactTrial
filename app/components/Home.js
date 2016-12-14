@@ -1,5 +1,4 @@
 var React = require('react')
-var transparentBg = require('../styles').transparentBg;
 var ReactRouter = require('react-router')
 var Link = ReactRouter.Link
 var MainWrapper = require('../components/MainWrapper')
