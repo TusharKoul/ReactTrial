@@ -24,7 +24,7 @@ var ResultsContainer = React.createClass({
     playersInfo = this.props.location.state.playersInfo
     githubHelper.battle(playersInfo).then(function(scores){
       this.setState({
-        isLoading : true,
+        isLoading : false,
         scores : scores
       })
     }.bind(this))
