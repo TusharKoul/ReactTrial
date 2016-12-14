@@ -2,10 +2,10 @@ var React = require('react');
 var styles = require('../styles')
 var PropTypes = React.PropTypes
 var Link = require('react-router').Link
-var UserDetails = require('../components/UserDetails')
-var UserDetailsWrapper = require('../components/UserDetailsWrapper')
-var MainWrapper = require('../components/MainWrapper')
-
+var UserDetails = require('./UserDetails')
+var UserDetailsWrapper = require('./UserDetailsWrapper')
+var MainWrapper = require('./MainWrapper')
+var Loading = require('./Loading')
 
 
 function puke(object){
@@ -23,19 +23,23 @@ function StartOver() {
     );
 }
 
+function Tie() {
+  return (
+    <MainWrapper>
+      <h1> TIE </h1>
+      <StartOver/>
+    </MainWrapper>
+  );
+}
+
 
 function Results (props) {
   if(props.isLoading === true) {
-    return (<p> LOADING </p>)
+    return (<Loading text='Crunching numbers' speed={600}/>)
   }
 
   if(props.scores[0] === props.scores[1]) {
-    return (
-      <MainWrapper>
-        <h1> TIE </h1>
-        <StartOver/>
-      </MainWrapper>
-    );
+    return <Tie/>
   }
 
   var winningIndex = props.scores[0] > props.scores[1] ? 0 : 1
